@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  
+  --color-brand-bg: #FFFFFF;
+  --color-brand-card: #F9F9FB;
+  --color-brand-border: #E2E8F0;
+  --color-brand-accent: #2563EB;
+  --color-brand-text: #0F172A;
+  --color-brand-muted: #64748B;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-brand-text font-sans antialiased;
+  }
+}
+
+@layer components {
+  .input-box {
+    @apply bg-white border border-brand-border rounded-xl p-4 transition-all focus-within:border-brand-accent focus-within:ring-4 focus-within:ring-brand-accent/5;
+  }
+  
+  .input-field {
+    @apply bg-transparent w-full text-2xl font-bold outline-none text-brand-text placeholder:text-brand-muted/20 font-mono;
+  }
+  
+  .btn-primary {
+    @apply bg-brand-text text-white font-bold rounded-xl transition-all active:scale-[0.98] flex flex-col items-center justify-center hover:bg-black shadow-lg shadow-black/5;
+  }
+  
+  .data-row:nth-child(even) {
+    @apply bg-brand-card/50;
+  }
+}
+
+/* Custom scrollbar */
+.scroll-area::-webkit-scrollbar {
+  width: 6px;
+}
+.scroll-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scroll-area::-webkit-scrollbar-thumb {
+  @apply bg-brand-border;
+  border-radius: 3px;
+}
+.scroll-area::-webkit-scrollbar-thumb:hover {
+  @apply bg-brand-muted/30;
+}
