@@ -136,7 +136,7 @@ export default function App() {
     if (sp <= 0) return null;
 
     const totalIn = (l.ft * 12) + l.in;
-    return Math.ceil(totalIn / sp) + 1;
+    return Number((totalIn / sp).toFixed(2));
   }, [slabLengthStr, slabSpacingStr]);
 
   const handleSaveSlab = () => {
@@ -267,7 +267,7 @@ export default function App() {
           <div className="flex items-center justify-between p-4 bg-brand-card rounded-xl border border-brand-border">
             <div className="text-left">
               <h2 className="text-[9px] uppercase font-black tracking-[0.2em] text-brand-muted mb-1">Current Quantity</h2>
-              <p className="text-[9px] text-brand-muted font-bold uppercase tracking-widest opacity-40">Rounded Up + 1</p>
+              <p className="text-[9px] text-brand-muted font-bold uppercase tracking-widest opacity-40">Exact Mathematical Division</p>
             </div>
             <div className="text-4xl font-black text-brand-text font-mono tracking-tighter">
               {slabResult !== null ? slabResult : '00'}
@@ -276,7 +276,7 @@ export default function App() {
           
           <div className="mt-3 pt-3 border-t border-brand-border flex justify-between text-[9px] font-mono text-brand-muted font-bold uppercase tracking-tighter opacity-60">
             <span>({lParsed.ft} × 12) + {lParsed.in} = {(lParsed.ft * 12) + lParsed.in} in</span>
-            <span>Formula: Ceil(Total/Spc) + 1</span>
+            <span>Formula: Total Inches / Spacing</span>
           </div>
         </div>
 
